@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Ikigai</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('https://i.imgur.com/01nR06R.jpg') center/cover no-repeat;
+            transition: background 0.5s ease;
+        }
+
+        #ikigai-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            transition: box-shadow 0.5s ease, background-color 0.5s ease;
+        }
+
+        h1 {
+            color: #ff7675;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+            transition: color 0.5s ease;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .opcion {
+            cursor: pointer;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #e17055;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .opcion:hover {
+            background-color: #e17055;
+            border-color: #d35400;
+        }
+
+        #detalles {
+            display: none;
+            margin-top: 20px;
+            color: #2d3436;
+        }
+
+        #ikigai-combinacion {
+            display: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        #notas-personales {
+            margin-top: 20px;
+        }
+
+        #restablecer-btn, #guardar-btn, #cargar-btn, #color-fondo-btn, #personalizar-titulo-btn {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        #restablecer-btn {
+            background-color: #d63031;
+        }
+
+        #guardar-btn {
+            background-color: #00b894;
+        }
+
+        #cargar-btn {
+            background-color: #0984e3;
+        }
+
+        #color-fondo-btn {
+            background-color: #fdcb6e;
+        }
+
+        #personalizar-titulo-btn {
+            background-color: #6c5ce7;
+        }
+
+        #color-fondo-input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border: 1px solid #d2dae2;
+            border-radius: 5px;
+            color: #2d3436;
+        }
+
+        #personalizar-titulo-input {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #d2dae2;
+            border-radius: 5px;
+            color: #2d3436;
+        }
+
+        #personalizar-titulo, #personalizar-color {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ikigai-container">
+    <h1 id="titulo-ikigai">Tu Ikigai</h1>
+
+    <div id="personalizar-titulo">
+        <label for="personalizar-titulo-input">Personalizar Título:</label>
+        <input type="text" id="personalizar-titulo-input" placeholder="Nuevo Título">
+        <button id="personalizar-titulo-btn" onclick="personalizarTitulo()">Aplicar</button>
+    </div>
+
+    <div id="personalizar-color">
+        <label for="color-fondo-input">Personalizar Color de Fondo:</label>
+        <input type="color" id="color-fondo-input" onchange="cambiarColorFondo()">
+        <button id="color-fondo-btn" onclick="confirmarCambioColor()">Cambiar Color</button>
+    </div>
+
+    <div class="section">
+        <h2 style="color: #2d3436;">LO QUE AMAS</h2>
+        <div class="opcion" onclick="seleccionarArea('Creatividad')">Creatividad</div>
+        <div class="opcion" onclick="seleccionarArea('Relaciones')">Relaciones</div>
+        <div class="opcion" onclick="seleccionarArea('Aprendizaje')">Aprendizaje</div>
+        <div class="opcion" onclick="seleccionarArea('Actividades Físicas')">Actividades Físicas</div>
+    </div>
+
+    <!-- Repite el mismo patrón para las otras secciones -->
+
+    <div id="ikigai-combinacion">
+        <!-- Esta sección mostrará detalles específicos de la combinación central del Ikigai -->
+        <h2 style="color: #2d3436;">Tu Ikigai</h2>
+        <p id="combinacion-texto"></p>
+    </div>
+
+    <div id="notas-personales">
+        <!-- Aquí el usuario puede agregar notas personalizadas -->
+        <h2 style="color: #2d3436;">Notas Personales</h2>
+        <textarea id="notas" rows="4" cols="50" placeholder="Añade tus notas..." style="color: #2d3436;"></textarea>
+        <button id="guardar-btn" onclick="guardarNotas()">Guardar Notas</button>
+        <button id="cargar-btn" onclick="cargarNotas()">Cargar Notas Guardadas</button>
+    </div>
+
+    <div id="restablecer-btn" onclick="restablecerPagina()">Restablecer Página</div>
+</div>
+
+<script>
+    // ... (El resto del script permanece sin cambios)
+</script>
+
+</body>
+</html>
